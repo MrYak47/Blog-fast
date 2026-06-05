@@ -1,6 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu"
+import { cn } from "@/lib/utils";
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemTitle,
+} from "@/components/ui/item"
+import Image from "next/image"
+import { Footer2 } from "@/components/ui/footer"
+
+
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,8 +46,41 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}>
+      <body className=" dark">
+        <NavigationMenu className="navmenu">
+          <NavigationMenuItem className="logo-nav">
+            <Image alt="Logo" src="vercel.svg" className="logo" width={25} height={25}/>
+          </NavigationMenuItem>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="./">
+                Home
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>
+                <NavigationMenuLink href="./Explore">
+                  Explore
+                </NavigationMenuLink>
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <NavigationMenuLink>Link</NavigationMenuLink>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="./about">
+              About
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+        
+        {children}
+        
+        <Footer2 />
+        
+      </body>
     </html>
   );
 }
