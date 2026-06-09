@@ -1,31 +1,33 @@
-import {Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import {Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import React from 'react'
+import Image from "next/image"
 
 
-interface IPost {
+export interface IPost {
+   id: string;
+   slug: string;
+   pro_pic: string;
    author: string;
    title: string;
    content: string;
 }
 
-const Post = ({author, title, content}: IPost) => {
+export const Post = ({id, slug, pro_pic, author, title, content}: IPost) => {
    return (
 
-      <Card>
-         <CardHeader className="card-h">
-            {author}
-         </CardHeader>
-         <CardTitle className="card-t">
+      <Card >
+         <div className="flex items-center gap-6">
+            <Image src={pro_pic} alt="default image" width={45} height={45} className="img" />
+            <CardHeader >
+               <h2>{author}</h2>
+            </CardHeader>
+         </div>
+         <CardTitle >
             {title}
          </CardTitle>
-         <CardContent className="card-c">
+         <CardContent >
             {content}
          </CardContent>
-         <CardFooter className="card-f">
-         </CardFooter>
       </Card>
    )
 }
-
-export default Post
-   

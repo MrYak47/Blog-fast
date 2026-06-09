@@ -2,4 +2,31 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@layer components {
+   .card-main {
+      @apply rounded-xl shadow-md p-2 m-4 mb-6 bg-black text-white outline-1 outline-white/50;
 
+      .img {
+         @apply rounded-full ml-2;
+      }
+
+      .card-h {
+         @apply text-lg font-bold my-2 underline w-max ;
+         
+         h2 {
+            @apply w-max;
+         }
+      }
+
+      .card-t {
+         @apply text-4xl font-bold mb-2 pl-2;
+      }
+
+      .card-c {
+         @apply text-base mb-4;
+      }
+      .card-f {
+         @apply hidden;
+      }
+   }
+}

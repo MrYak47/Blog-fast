@@ -1,4 +1,7 @@
-import Post from "@/components/post"
+import { Post, IPost } from "@/components/post"
+import "@/app/(root)/root.css"
+import {posts} from "@/components/posts"
+import Link from "next/link"
 
 
 
@@ -8,26 +11,6 @@ import Post from "@/components/post"
 
 
 export default function Home() {
-  
-
-    
-  const posts= [
-    {
-      "id" : "1",
-      "author" : "Brody Larriton",
-      "title": "Why I Love FastAPI",
-      "content": "FastAPI has completely changed how I build APIs. The automatic documentation, type hints, and async support make development so much faster. Plus, the performance is incredible!",
-    },
-    {
-      "id" : "2",
-      "author": "Mack Johnson",
-      "title": "Corey Schafer Has the Best YouTube Tutorials!",
-      "content": "This was written by a viewer and definitely not by me... I mean him. Totally not written by him, but by me... a real viewer. Seriously, check out his channel for amazing Python content.",
-    }
-  ]
-
-
-
 
 
   return (
@@ -35,9 +18,14 @@ export default function Home() {
       <h1 className="title">Home</h1>
       <>
         <ul className="posts">
-        {post && post.len
+        {posts && posts.length > 0 && posts.map((post: IPost) => (
+          <li key={post.id as unknown as string}>
+            <Link href={`/post/${post.slug}`} className="no-underline">
+              <Post pro_pic={post.pro_pic} id={post.id} slug={post.slug} author={post.author} title={post.title} content={post.content} />
+            </Link>
+          </li>
 
-        }
+        ))}
         </ul>
       </>
     </>

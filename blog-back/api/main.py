@@ -22,5 +22,9 @@ app.add_middleware(
 def home():
     return f"<h1>Okay, This Home Page!</h1>"
 
+# @app.get("/api/post/{post_id}")
+# def get_post(post_id: int):
+    
+
 
 

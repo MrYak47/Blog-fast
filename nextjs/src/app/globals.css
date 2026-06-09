@@ -77,7 +77,7 @@
 
 @layer components {
   .title {
-    @apply flex font-bold sm:ml-10 ts-center mb-10;
+    @apply flex font-bold sm:ml-10 ts-center my-10 text-4xl;
   }
   
   .navmenu {
