@@ -50,7 +50,7 @@ export default function RootLayout({
       <body className=" dark">
         <NavigationMenu className="navmenu">
           <NavigationMenuItem className="logo-nav">
-            <Image alt="Logo" src="vercel.svg" className="logo" width={25} height={25}/>
+            <Image alt="Logo" src="/vercel.svg" className="logo" width={25} height={25}/>
           </NavigationMenuItem>
           <NavigationMenuList>
             <NavigationMenuItem>

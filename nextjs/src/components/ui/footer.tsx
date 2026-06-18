@@ -49,7 +49,7 @@ type Props = Partial<Footer2Props>;
 const defaultProps: Footer2Props = {
    logo: {
    url: "/",
-   src: "next.svg",
+   src: "/next.svg",
    alt: "logo",
    title: "Blog Fast",
    },
